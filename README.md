@@ -9,7 +9,7 @@ So whether you're looking to impress your friends with your haiku skills or simp
 
 ### 1. Add an OpenAI API key
 
-Clone this project and add an OpenAPI to it:
+Clone this project and add an OpenAPI key to it:
 1. Sign up for an account with https://platform.openai.com/
 2. Create an API under your account https://platform.openai.com/account/api-keys. Copy to key to your clipboard.
 3. In the haikudo directory, create a copy of the file `.env.example` to `.env`.
