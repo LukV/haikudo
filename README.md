@@ -20,7 +20,7 @@ Clone this project and add an OpenAPI key to it:
 1. Create a virtual environment `python -m venv /path/to/new/virtual/environment`
 2. Install the required packages `pip install -r requirements.txt`
 
-### 2. Run haikudo from the command line
+### 3. 🚀 Run haikudo from the command line
 
 1. Run python cli.py --topic "Dead Parrot" --mood "Exasperated"
 2. View the response on the command line
