@@ -1,19 +1,20 @@
+import asyncio
 from api import call_api
-import click
+import argparse
 
-@click.command()
-@click.option("--topic", 
-    prompt="Enter a topic", 
-    help="The topic you want haikudo to proze out on.")
-def run_api(topic):
-    response = call_api(generate_prompt(topic))
-    click.echo(response)
+parser = argparse.ArgumentParser()
+parser.add_argument('--topic', type=str, required=True)
+parser.add_argument('--mood', type=str, required=False, default="Happy")
+args = parser.parse_args()
 
-def generate_prompt(topic):
-    return "Write a haiku about {}".format(topic)
+async def run_api():
+    response = await call_api(args.topic, args.mood)
+    print(response)
 
-def main():
-    run_api()
+
+async def main():
+    await run_api()
+
 
 if __name__ == '__main__':
-    main()
+    asyncio.run(main())

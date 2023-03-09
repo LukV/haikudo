@@ -1,18 +1,20 @@
 import os
 import openai
 from dotenv import load_dotenv
+import asyncio
+from storage import write_response
 
 load_dotenv()
 
-# Load your API key from an environment variable or 
-# secret management service
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
-def call_api(prompt):
+async def call_api(topic, mood):
     model_engine = "text-davinci-002"
     max_tokens = 150
     completion = openai.Completion.create(
         engine=model_engine,
-        prompt=prompt
+        prompt=f"Write a {mood} haiku about {topic}"
     )
-    return completion.choices[0].text
+    response = completion.choices[0].text
+    asyncio.create_task(write_response(response, topic))
+    return response
